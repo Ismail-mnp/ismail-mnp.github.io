@@ -1,0 +1,60 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Mencegah scrollbar muncul karena video */
+}
+
+.background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Meletakkan video di belakang konten lain */
+}
+
+.background-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Meletakkan konten di atas video */
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan untuk teks */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+/* Untuk layar yang lebih kecil agar video tetap proporsional */
+@media (pointer: coarse) {
+    .background-video {
+        background: black; /* Warna solid sebagai fallback jika video tidak dapat diputar atau tidak diunduh */
+    }
+}
